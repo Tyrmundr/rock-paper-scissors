@@ -11,4 +11,10 @@ What to learn:
 - conditionals and debugging  
 
 What I have learned:  
-- TBA
+- planning before coding  
+- using conditionals better, e.g. checking for "draw" before checking for any other results  
+- using comments mainly for later use  
+- building a single part at a time, then testing it  
+- using console.log() for debugging  
+
+NOTE: In the future there will be updates to this Project - not only GUI but JS part too!
