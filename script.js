@@ -10,7 +10,7 @@ function computerPlay() {
 
 //Play Round function
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+    playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
     computerSelection = computerSelection.toLowerCase();
     let result = "";
 
@@ -22,3 +22,4 @@ function playRound(playerSelection, computerSelection) {
         return result = `Computer WINS, Player LOSES: ${computerSelection} beats ${playerSelection}`
     }
 }
+
