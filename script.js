@@ -23,3 +23,20 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+//5 round Game function
+function game() {
+    /* for later use, when implementing score-keeping and final results */
+    //let playerScore = 0;
+    //let computerScore = 0;
+    //let result = "The game is finished!";
+    
+
+    //loop so the game is only going for 5 rounds
+    for(let i = 0; i < 5; i++) {
+        console.log(playRound(prompt("Rock, Paper or Scissors?"), computerPlay()))
+    }
+    
+}
+
+//calling the game
+game()
