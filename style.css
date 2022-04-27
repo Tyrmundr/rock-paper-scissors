@@ -64,7 +64,7 @@ body {
     justify-content: space-between;
 }
 
-.btn {
+[data-value="btn"] {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,11 +76,11 @@ body {
     cursor: pointer;
 }
 
-.btn:hover{
+[data-value="btn"]:hover{
     background-image: radial-gradient(circle, #44bc32, #55c544, #65cd54, #74d664, #82df73);
 }
 
-.btn>img {
+[data-value="btn"]>img {
     width: 100px;
     height: 100px;
     filter: invert(97%) sepia(6%) saturate(308%) hue-rotate(62deg) brightness(97%) contrast(104%);
@@ -88,7 +88,7 @@ body {
     transition: .3s;
 }
 
-.btn:hover > img{
+[data-value="btn"]:hover > img{
     transform: scale(.8);
 }
 
