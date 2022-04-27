@@ -57,7 +57,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
     gap: 24px;
-    border: solid 1px black;
     width: 800px;
 }
 
@@ -102,4 +101,47 @@ body {
     color: #b7edaf;
     text-shadow: 0 0 4px #359227, 0 0 4px #359227, 0 0 4px #359227;
     font-size: 24px;
+}
+
+.previous-picks {
+    justify-content: space-around;
+    gap: 48px;
+    padding-bottom: 48px;
+}
+
+.previous-player, .previous-computer {
+    width: 250px;
+    border-top: 2px solid #c9f1c3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0;
+    gap: 48px;
+}
+
+.prev {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #edfaeb;
+    background-color: #82df73;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.prev > img {
+    width: 40px;
+    height: 40px;
+    filter: invert(97%) sepia(35%) saturate(196%) hue-rotate(45deg) brightness(101%) contrast(90%);
+}
+
+.opaque {
+    opacity: .6;
+}
+
+.opaquer {
+    opacity: .3;
 }
