@@ -2,19 +2,34 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px; 
 }
 
 body {
     height: 100vh;
     background-image: linear-gradient(to right,#4cd137, #a6e89b);
+    display: flex;
+    flex-direction: column;
 }
 
 #main-container {
-    width: 1248px;
-    background-color: rgb(245, 246, 250, .7);
+    width: 1048px;
+    background-color: rgba(245, 246, 250, .5);
     margin: 5rem auto;
     padding: 2%;
     border: solid 2px #b7edaf;
     border-radius: 4px;
     box-shadow: 0 0 8px #edfaeb;
+    flex-grow: 1;
+}
+
+#footer {
+    text-align: center;
+    padding: 1.2em;
+    background-color: rgb(23, 63, 16, .75);
+    border-top: solid 4px rgb(15, 42, 11, .6);
+    font-size: 20px;
+    color: #a6e89b;
 }
