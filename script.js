@@ -2,9 +2,19 @@
 
 /* classes */
 //opaque, opaquer, prev
+//e.target.classList[1] === "rock" || e.target.alt === "rock"
 
-//Global Array for choices
 const rps  = ["rock", "paper", "scissors"];
+
+const buttons = document.querySelectorAll("[data-value]")
+buttons.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        let playerChoice = e.target.classList[0];
+        playRound(playerChoice)
+    })
+})
+
+const message = document.querySelector(".msg");
 
 //Computer play function
 function computerPlay() {
@@ -12,18 +22,19 @@ function computerPlay() {
 }
 
 //Play Round function
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection = computerPlay()) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
     let result = "";
 
     if(playerSelection === computerSelection) {
-        return result = `It's a DRAW! Both choices are: ${playerSelection}`;
+        result = `It's a DRAW! Both choices are: ${playerSelection}`;
     } else if((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper"))  {
-        return result = `Player WINS, Computer LOSES: ${playerSelection} beats ${computerSelection}`
+        result = `Player WINS, Computer LOSES: ${playerSelection} beats ${computerSelection}`
     } else {
-        return result = `Computer WINS, Player LOSES: ${computerSelection} beats ${playerSelection}`
+        result = `Computer WINS, Player LOSES: ${computerSelection} beats ${playerSelection}`
     }
+    message.innerText = result;
 }
 
 //5 round Game function
