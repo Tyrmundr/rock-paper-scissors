@@ -1,5 +1,8 @@
 "use strict"
 
+/* classes */
+//opaque, opaquer, prev
+
 //Global Array for choices
 const rps  = ["rock", "paper", "scissors"];
 
