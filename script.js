@@ -23,7 +23,15 @@ const div = document.createElement("div");
 const icon = document.createElement("img");
 
 //NEED:
-//function to check 
+//check length of nodelist
+function checkLength(nodelist) {
+    return nodelist.childElementCount;
+}
+
+//remove last childElement
+function removeLastChild(nodelist) {
+    return nodelist.removeChild(nodelist.lastElementChild);
+}
 
 //Computer play function
 function computerPlay() {
