@@ -18,11 +18,14 @@ body {
     width: 1048px;
     background-color: rgba(245, 246, 250, .5);
     margin: 5rem auto;
-    padding: 2%;
+    padding: 0 2% 2% 2%;
     border: solid 2px #b7edaf;
     border-radius: 4px;
     box-shadow: 0 0 8px #edfaeb;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #footer {
@@ -32,4 +35,60 @@ body {
     border-top: solid 4px rgb(15, 42, 11, .6);
     font-size: 20px;
     color: #a6e89b;
+}
+
+.message, .container, .buttons, .players, .previous-picks {
+    display: flex;
+}
+
+.message {
+    justify-content: center;
+    align-items: center;
+    padding: 32px 0;
+}
+
+.message > h1 {
+    color: #b7edaf;
+    text-shadow: 0 0 4px #359227, 0 0 4px #359227, 0 0 4px #359227;
+    font-size: 32px;
+}
+
+.container {
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    border: solid 1px black;
+    width: 800px;
+}
+
+.container>.buttons {
+    justify-content: space-between;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px #c9f1c3;
+    border-radius: 12px;
+    background-color: #82df73;
+    padding: 12px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-image: radial-gradient(circle, #44bc32, #55c544, #65cd54, #74d664, #82df73);
+}
+
+.btn>img {
+    width: 100px;
+    height: 100px;
+    filter: invert(97%) sepia(6%) saturate(308%) hue-rotate(62deg) brightness(97%) contrast(104%);
+    opacity: .8;
+    transition: .3s;
+}
+
+.btn:hover > img{
+    transform: scale(.8);
 }
