@@ -31,12 +31,13 @@ function game() {
     //let result = "The game is finished!";
     
 
+    /* no need for now
     //loop so the game is only going for 5 rounds
     for(let i = 0; i < 5; i++) {
         console.log(playRound(prompt("Rock, Paper or Scissors?"), computerPlay()))
     }
+    */
     
 }
 
-//calling the game
 game()
