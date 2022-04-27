@@ -44,10 +44,10 @@ body {
 .message {
     justify-content: center;
     align-items: center;
-    padding: 32px 0;
+    padding: 48px 0;
 }
 
-.message > h1 {
+.msg {
     color: #b7edaf;
     text-shadow: 0 0 4px #359227, 0 0 4px #359227, 0 0 4px #359227;
     font-size: 32px;
