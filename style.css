@@ -3,3 +3,17 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(to right,#4cd137, #a6e89b);
+}
+
+#main-container {
+    width: 1248px;
+    background-color: rgb(245, 246, 250, .7);
+    margin: 5rem auto;
+    padding: 2%;
+    border: solid 2px #b7edaf;
+    border-radius: 4px;
+    box-shadow: 0 0 8px #edfaeb;
