@@ -11,7 +11,7 @@ buttons.forEach(btn => {
     btn.addEventListener("click", (e) => {
         let playerChoice = e.target.classList[0];
         let computerChoice = computerPlay();
-        changePreviousPicks(playerChoice, computerChoice);
+        //function to change previous picks container
         playRound(playerChoice, computerChoice);
     })
 })
@@ -22,62 +22,8 @@ const previousComputer = document.querySelector(".previous-computer");
 const div = document.createElement("div");
 const icon = document.createElement("img");
 
-//Previous picks function
-function changePreviousPicks(playerPick, computerPick) {
-    let playerPicks = [];
-    let computerPicks = [];
-
-    if(checkPlayerPick()) {
-        picksPlayer.pop();
-    } else if(/*check if amount is 2*/X)
-    {
-        div.classList.add("opaquer");
-    } else if(/*check if amount is 1*/X) {
-        div.classList.add("opaque");
-    }
-
-    if(checkComputerPick()) {
-        picksComputer.pop();
-    } else {
-        picksComputer.unshift(computerPick)
-    }
-}
-
-//check for class
-function checkOpacity(array) {
-    const classes = ["opaque", "opaquer"];
-    if(array.length) {
-        if(classes.some(classItem => array[0].classList.contains(classItem))) {
-            array[0].className = ""; 
-        } else if(array[1].className !== "opaque") {
-            array[1].className = "";
-            array[1].classList.add("opaque");
-        } else if(array[2].className !== "opaquer") {
-            array[2].className = "";
-            array[2].classList.add("opaquer");
-        }
-    }
-    
-}
-
-//creating previous pick elements
-function createPick(pick) {
-    div.classList.add("prev");
-
-}
-
-//checking picks
-function checkPlayerPick(prevPlayer = previousPlayer) {
-    if(prevPlayer.childElementCount === 3) {
-        return true;
-    } return;
-}
-
-function checkComputerPick(prevComputer = previousComputer) {
-    if(prevComputer.childElementCount === 3) {
-        return true;
-    } return;
-}
+//NEED:
+//function to check 
 
 //Computer play function
 function computerPlay() {
