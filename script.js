@@ -28,11 +28,11 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
     let result = "";
 
     if(playerSelection === computerSelection) {
-        result = `It's a DRAW! Both choices are: ${playerSelection}`;
+        result = `It's a draw!`;
     } else if((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper"))  {
-        result = `Player WINS, Computer LOSES: ${playerSelection} beats ${computerSelection}`
+        result = `You won!`
     } else {
-        result = `Computer WINS, Player LOSES: ${computerSelection} beats ${playerSelection}`
+        result = `Computer won!`
     }
     message.innerText = result;
 }
