@@ -12,14 +12,7 @@ let currentRound = 1;
 
 const buttons = document.querySelectorAll("[data-value]")
 buttons.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-        let playerChoice = e.target.classList[0];
-        let computerChoice = computerPlay();
-        //function to change previous picks container
-        playRound(playerChoice, computerChoice);
-        console.log(playerChoice, computerChoice)
-        updateScores();
-    })
+    btn.addEventListener("click", game)
 })
 
 const message = document.querySelector(".msg");
@@ -44,9 +37,6 @@ function removeLastChild(nodelist) {
 }
 
 //scores function
-function incrementScores(winner) {
-    
-}
 
 //update scores
 function updateScores() {
@@ -74,15 +64,31 @@ function playRound(playerSelection, computerSelection) {
     
     message.innerText = getWinner(playerSelection, computerSelection);
     incrementScore(getWinner(playerSelection, computerSelection));
+    
 }
 
 function incrementScore(score) {
     if(score === "You won!") {
         playerScore++;
     } else if(score === "Computer won!") {
-        computerScore++
+        computerScore++;
     }
 }
+
+function checkWinner() {
+    let msg = "";
+    
+    if(playerScore > computerScore) {
+        msg = `Player has won the game!`
+    } else if (computerScore > playerScore) {
+        msg = `Computer has won the game!`
+    } else {
+        msg = `Nobody won!`
+    }
+    message.innerText = msg;
+    rmvEvLis();
+}
+
 
 function getWinner(p, c) {
     let result = "";
@@ -96,21 +102,26 @@ function getWinner(p, c) {
     return result;
 }
 
-//5 round Game function
-function game() {
-    /* for later use, when implementing score-keeping and final results */
-    //let playerScore = 0;
-    //let computerScore = 0;
-    //let result = "The game is finished!";
-    
-
-    /* no need for now
-    //loop so the game is only going for 5 rounds
-    for(let i = 0; i < 5; i++) {
-        console.log(playRound(prompt("Rock, Paper or Scissors?"), computerPlay()))
-    }
-    */
-    
+//remove event listener
+function rmvEvLis() {
+    buttons.forEach(btn => {
+        btn.removeEventListener("click", game);
+    });
 }
 
-game()
+//5 round Game function
+function game(e) {
+    console.log(currentRound)
+    if(currentRound === 5) {
+        checkWinner();
+        return;
+    }
+    ++currentRound;
+    let playerChoice = e.target.classList[0];
+    let computerChoice = computerPlay();
+    //function to change previous picks container
+    playRound(playerChoice, computerChoice);
+    updateScores();
+}
+
+//game()
