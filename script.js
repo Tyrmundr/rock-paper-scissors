@@ -15,6 +15,14 @@ buttons.forEach(btn => {
     btn.addEventListener("click", game)
 })
 
+const reloadBtn = document.getElementById("reload");
+reloadBtn.addEventListener("click", () => {
+    buttons.forEach(btn => {
+        btn.addEventListener("click", game)
+    });
+    resetUI();
+})
+
 const message = document.querySelector(".msg");
 const previousPlayer = document.querySelector(".previous-player");
 const previousComputer = document.querySelector(".previous-computer");
@@ -48,6 +56,7 @@ function updateScores() {
 function resetUI() {
     playerScore = 0;
     computerScore = 0;
+    currentRound = 0;
     message.innerText = `Well, are you gonna choose or what?!`;
     updateScores();
 }
