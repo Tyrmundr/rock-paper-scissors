@@ -12,6 +12,7 @@ body {
     background-image: linear-gradient(to right,#4cd137, #a6e89b);
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 #main-container {
@@ -26,6 +27,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+}
+
+#reload {
+    cursor: pointer;
+    position: absolute;
+    top: 7.5%;
+    right: 4.5%;
+    font-size: 96px;
+    color: #359227;
+    text-shadow: 0 0 8px #74d664;
+    transform: rotate(120deg);
+    transition: ease-in-out .3s;
+}
+
+#reload:hover {
+    color: #74d664;
+    text-shadow: 0 0 8px #359227;
+    transform: scale(1.1);
 }
 
 #footer {
