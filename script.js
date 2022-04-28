@@ -4,77 +4,46 @@
 //opaque, opaquer, prev
 //e.target.classList[1] === "rock" || e.target.alt === "rock"
 
-const rps  = ["rock", "paper", "scissors"];
+/*-----------------------------------------*/
+/*~~~~~ GLOBAL VARIABLES ~~~~~*/
+/*-----------------------------------------*/
 
+const rps  = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
 let currentRound = 1;
 
-const buttons = document.querySelectorAll("[data-value]")
-buttons.forEach(btn => {
-    btn.addEventListener("click", game)
-})
+/*-----------------------------------------*/
+/*~~~~~ DOM ELEMENTS ~~~~~*/
+/*-----------------------------------------*/
 
+const buttons = document.querySelectorAll("[data-value]");
 const reloadBtn = document.getElementById("reload");
-reloadBtn.addEventListener("click", () => {
-    buttons.forEach(btn => {
-        btn.addEventListener("click", game)
-    });
-    resetUI();
-})
 
 const message = document.querySelector(".msg");
 const previousPlayer = document.querySelector(".previous-player");
 const previousComputer = document.querySelector(".previous-computer");
-
 const playerHuman = document.querySelector(".player-human");
-const playerComputer = document.querySelector(".player-computer")
+const playerComputer = document.querySelector(".player-computer");
 
 const div = document.createElement("div");
 const icon = document.createElement("img");
 
-//NEED:
-//check length of nodelist
-function checkLength(nodelist) {
-    return nodelist.childElementCount;
-}
+/*-----------------------------------------*/
+/*~~~~~ GAME LOGIC ~~~~~*/
+/*-----------------------------------------*/
 
-//remove last childElement
-function removeLastChild(nodelist) {
-    return nodelist.removeChild(nodelist.lastElementChild);
-}
-
-//scores function
-
-//update scores
-function updateScores() {
-    playerHuman.innerText = `PLAYER - ${playerScore}`;
-    playerComputer.innerText = `${computerScore} - COMPUTER`
-}
-
-//reset UI
-function resetUI() {
-    playerScore = 0;
-    computerScore = 0;
-    currentRound = 0;
-    message.innerText = `Well, are you gonna choose or what?!`;
-    updateScores();
-}
-
-//Computer play function
 function computerPlay() {
     return rps[Math.floor(Math.random() * rps.length)];
-}
+};
 
-//Play Round function
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
     
     message.innerText = getWinner(playerSelection, computerSelection);
     incrementScore(getWinner(playerSelection, computerSelection));
-    
-}
+};
 
 function incrementScore(score) {
     if(score === "You won!") {
@@ -82,7 +51,7 @@ function incrementScore(score) {
     } else if(score === "Computer won!") {
         computerScore++;
     }
-}
+};
 
 function checkWinner() {
     let msg = "";
@@ -96,8 +65,7 @@ function checkWinner() {
     }
     message.innerText = msg;
     rmvEvLis();
-}
-
+};
 
 function getWinner(p, c) {
     let result = "";
@@ -109,16 +77,14 @@ function getWinner(p, c) {
         result = `Computer won!`;
     }
     return result;
-}
+};
 
-//remove event listener
 function rmvEvLis() {
     buttons.forEach(btn => {
         btn.removeEventListener("click", game);
     });
-}
+};
 
-//5 round Game function
 function game(e) {
     console.log(currentRound)
     if(currentRound === 5) {
@@ -131,6 +97,44 @@ function game(e) {
     //function to change previous picks container
     playRound(playerChoice, computerChoice);
     updateScores();
-}
+};
 
-//game()
+/*-----------------------------------------*/
+/*~~~~~ UI MANIPULATION ~~~~~*/
+/*-----------------------------------------*/
+
+function checkLength(nodelist) {
+    return nodelist.childElementCount;
+};
+
+function removeLastChild(nodelist) {
+    return nodelist.removeChild(nodelist.lastElementChild);
+};
+
+function updateScores() {
+    playerHuman.innerText = `PLAYER - ${playerScore}`;
+    playerComputer.innerText = `${computerScore} - COMPUTER`
+};
+
+function resetUI() {
+    playerScore = 0;
+    computerScore = 0;
+    currentRound = 0;
+    message.innerText = `Well, are you gonna choose or what?!`;
+    updateScores();
+};
+
+/*-----------------------------------------*/
+/*~~~~~ EVENT LISTENERS ~~~~~*/
+/*-----------------------------------------*/
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", game)
+});
+
+reloadBtn.addEventListener("click", () => {
+    buttons.forEach(btn => {
+        btn.addEventListener("click", game)
+    });
+    resetUI();
+});
