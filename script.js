@@ -6,6 +6,10 @@
 
 const rps  = ["rock", "paper", "scissors"];
 
+let playerScore = 0;
+let computerScore = 0;
+let currentRound = 1;
+
 const buttons = document.querySelectorAll("[data-value]")
 buttons.forEach(btn => {
     btn.addEventListener("click", (e) => {
@@ -13,12 +17,17 @@ buttons.forEach(btn => {
         let computerChoice = computerPlay();
         //function to change previous picks container
         playRound(playerChoice, computerChoice);
+        updateScores();
     })
 })
 
 const message = document.querySelector(".msg");
 const previousPlayer = document.querySelector(".previous-player");
 const previousComputer = document.querySelector(".previous-computer");
+
+const playerHuman = document.querySelector(".player-human");
+const playerComputer = document.querySelector(".player-computer")
+
 const div = document.createElement("div");
 const icon = document.createElement("img");
 
@@ -33,6 +42,17 @@ function removeLastChild(nodelist) {
     return nodelist.removeChild(nodelist.lastElementChild);
 }
 
+//scores function
+function incrementScores(winner) {
+    
+}
+
+//update scores
+function updateScores() {
+    playerHuman.innerText = `PLAYER - ${playerScore}`;
+    playerComputer.innerText = `${computerScore} - COMPUTER`
+}
+
 //Computer play function
 function computerPlay() {
     return rps[Math.floor(Math.random() * rps.length)];
@@ -42,17 +62,20 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
-    let result = "";
+    
+    message.innerText = getWinner(playerSelection, computerSelection);
+}
 
-    if(playerSelection === computerSelection) {
+function getWinner(p, c) {
+    let result = "";
+    if(p === c) {
         result = `It's a draw!`;
-    } else if((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper"))  {
-        result = `You won!`
+    } else if((p === "rock" && c === "scissors") || (p === "paper" && c === "rock") || (p === "scissors" && c === "paper"))  {
+        result = `You won!`;
     } else {
-        result = `Computer won!`
+        result = `Computer won!`;
     }
-    message.innerText = result;
-    return playerSelection;
+    return result;
 }
 
 //5 round Game function
