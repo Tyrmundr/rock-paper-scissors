@@ -17,6 +17,7 @@ buttons.forEach(btn => {
         let computerChoice = computerPlay();
         //function to change previous picks container
         playRound(playerChoice, computerChoice);
+        console.log(playerChoice, computerChoice)
         updateScores();
     })
 })
@@ -53,6 +54,14 @@ function updateScores() {
     playerComputer.innerText = `${computerScore} - COMPUTER`
 }
 
+//reset UI
+function resetUI() {
+    playerScore = 0;
+    computerScore = 0;
+    message.innerText = `Well, are you gonna choose or what?!`;
+    updateScores();
+}
+
 //Computer play function
 function computerPlay() {
     return rps[Math.floor(Math.random() * rps.length)];
@@ -64,6 +73,15 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
     
     message.innerText = getWinner(playerSelection, computerSelection);
+    incrementScore(getWinner(playerSelection, computerSelection));
+}
+
+function incrementScore(score) {
+    if(score === "You won!") {
+        playerScore++;
+    } else if(score === "Computer won!") {
+        computerScore++
+    }
 }
 
 function getWinner(p, c) {
