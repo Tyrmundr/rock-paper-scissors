@@ -38,8 +38,7 @@ body {
     font-size: 96px;
     color: #359227;
     text-shadow: 0 0 8px #74d664;
-    transform: rotate(120deg);
-    transition: ease-in-out .3s;
+    transition: ease-in-out .15s;
 }
 
 #reload:hover {
