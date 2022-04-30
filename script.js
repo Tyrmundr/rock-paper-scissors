@@ -120,6 +120,14 @@ function game(e) {
 /*~~~~~ UI MANIPULATION ~~~~~*/
 /*-----------------------------------------*/
 
+function resetPicks(nodelist) {
+    let i = nodelist.childElementCount;
+    while(i) {
+        nodelist.removeChild(nodelist.lastElementChild);
+        i--
+    }
+}
+
 function checkLength(nodelist) {
     return nodelist.childElementCount;
 };
@@ -174,10 +182,8 @@ function resetUI() {
     computerScore = 0;
     currentRound = 1;
 
-    for(let i = 0; i < 3; i++) {
-        previousPlayer.removeChild(previousPlayer.lastElementChild);
-        previousComputer.removeChild(previousComputer.lastElementChild);
-    }
+    resetPicks(previousPlayer);
+    resetPicks(previousComputer);
     message.innerText = `Well, are you gonna choose or what?!`;
     updateScores();
 };
