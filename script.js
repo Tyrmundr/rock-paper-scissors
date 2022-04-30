@@ -175,8 +175,8 @@ function resetUI() {
     currentRound = 1;
 
     for(let i = 0; i < 3; i++) {
-        previousPlayer.removeChild(previousPlayer.lastElementChild)
-        previousComputer.removeChild(previousComputer.lastElementChild)
+        previousPlayer.removeChild(previousPlayer.lastElementChild);
+        previousComputer.removeChild(previousComputer.lastElementChild);
     }
     message.innerText = `Well, are you gonna choose or what?!`;
     updateScores();
@@ -191,8 +191,9 @@ buttons.forEach(btn => {
 });
 
 reloadBtn.addEventListener("click", () => {
+    resetUI();
     buttons.forEach(btn => {
         btn.addEventListener("click", game)
     });
-    resetUI();
+    
 });
