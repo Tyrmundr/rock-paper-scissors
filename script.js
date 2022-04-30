@@ -36,7 +36,6 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
-    console.log(playerSelection, computerSelection)
     computerSelection = computerSelection.toLowerCase();
     
     message.innerText = getWinner(playerSelection, computerSelection);
@@ -103,12 +102,11 @@ function rmvEvLis() {
 };
 
 function game(e) {
-    console.log(currentRound)
     if(currentRound === 5) {
         checkWinner();
         return;
     }
-    ++currentRound;
+    currentRound++;
     let playerChoice = e.target.classList[0];
     let computerChoice = computerPlay();
     //function to change previous picks container
