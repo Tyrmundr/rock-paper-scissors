@@ -24,4 +24,8 @@ Update Log.:
 - Using shades of the same color looks nice regardless  
 - Game logic took more time than I wanted it to, but realized I overthink a lot and so underthinking helped solve the issue  
 - Learned the importance of scope and understood call stack better  
-- TBA
+- DOM manipulation had me for a while - issue was focusing on the parent, not the actual element I needed  
+
+This little project took me way more hours than I'd happily share but I did this completely on my own. No tutorials, very little googling, a lot of MDN docs reading, a lot of taking apart problems.  
+
+It is a win, regardless.
