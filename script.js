@@ -72,15 +72,18 @@ function incrementScore(msg) {
 function checkWinner() {
     let msg = "";
     
-    if(playerScore > computerScore) {
-        msg = `Player has won the game!`
-    } else if (computerScore > playerScore) {
-        msg = `Computer has won the game!`
-    } else {
-        msg = `Nobody won!`
-    }
-    message.innerText = msg;
-    rmvEvLis();
+    if(currentRound === 5) {
+        if(playerScore > computerScore) {
+            msg = `Player has won the game!`
+        } else if (computerScore > playerScore) {
+            msg = `Computer has won the game!`
+        } else {
+            msg = `Nobody won!`
+        }
+        message.innerText = msg;
+        rmvEvLis();
+    } return;
+    
 };
 
 function getWinner(p, c) {
@@ -102,15 +105,13 @@ function rmvEvLis() {
 };
 
 function game(e) {
-    if(currentRound === 5) {
-        checkWinner();
-        return;
-    }
-    currentRound++;
     let playerChoice = e.target.classList[0];
     let computerChoice = computerPlay();
+    
     //function to change previous picks container
     playRound(playerChoice, computerChoice);
+    checkWinner();
+    currentRound++;
     updateScores();
 };
 
