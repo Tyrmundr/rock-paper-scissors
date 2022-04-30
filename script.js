@@ -26,9 +26,6 @@ const previousComputer = document.querySelector(".previous-computer");
 const playerHuman = document.querySelector(".player-human");
 const playerComputer = document.querySelector(".player-computer");
 
-const div = document.createElement("div");
-const icon = document.createElement("img");
-
 /*-----------------------------------------*/
 /*~~~~~ GAME LOGIC ~~~~~*/
 /*-----------------------------------------*/
@@ -111,8 +108,15 @@ function removeLastChild(nodelist) {
     return nodelist.removeChild(nodelist.lastElementChild);
 };
 
-function createPick(nodelist) {
-    
+function createPick(nodelist,result) {
+    const div = document.createElement("div");
+    const icon = document.createElement("img");
+
+    div.classList.add("prev");
+    icon.setAttribute("src", `./icons/${result}.svg`);
+    icon.setAttribute("alt", `${result}`);
+    div.appendChild(icon);
+    nodelist.insertBefore(div, nodelist.firstElementChild);
 }
 
 function changeClasses(array) {
