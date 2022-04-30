@@ -36,16 +36,36 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
+    console.log(playerSelection, computerSelection)
     computerSelection = computerSelection.toLowerCase();
     
     message.innerText = getWinner(playerSelection, computerSelection);
-    incrementScore(getWinner(playerSelection, computerSelection));
+
+    incrementScore(message.innerText);
+
+    removeLastChild(previousPlayer);
+    removeLastChild(previousComputer);
+
+    if(message.innerText === "It's a draw!" || message.innerText === "Nobody won!") {
+        createPick(previousPlayer, playerSelection);
+        createPick(previousComputer, computerSelection);
+    } else if(message.innerText === "You won!" || message.innerText === "Player has won the game!") {
+        createPick(previousPlayer, playerSelection);
+        createPick(previousComputer, computerSelection);
+    } else if(message.innerText === "Computer won!" || message.innerText === "Computer has won the game!"){
+        createPick(previousComputer, computerSelection);
+        createPick(previousPlayer, playerSelection);
+    }
+
+    getClassLists(previousPlayer);
+    getClassLists(previousComputer);
+    
 };
 
-function incrementScore(score) {
-    if(score === "You won!") {
+function incrementScore(msg) {
+    if(msg === "You won!") {
         playerScore++;
-    } else if(score === "Computer won!") {
+    } else if(msg === "Computer won!") {
         computerScore++;
     }
 };
@@ -105,7 +125,9 @@ function checkLength(nodelist) {
 };
 
 function removeLastChild(nodelist) {
-    return nodelist.removeChild(nodelist.lastElementChild);
+    if(checkLength(nodelist) === 3) {
+        nodelist.removeChild(nodelist.lastElementChild);
+    }
 };
 
 function createPick(nodelist,result) {
@@ -150,7 +172,12 @@ function updateScores() {
 function resetUI() {
     playerScore = 0;
     computerScore = 0;
-    currentRound = 0;
+    currentRound = 1;
+
+    for(let i = 0; i < 3; i++) {
+        previousPlayer.removeChild(previousPlayer.lastElementChild)
+        previousComputer.removeChild(previousComputer.lastElementChild)
+    }
     message.innerText = `Well, are you gonna choose or what?!`;
     updateScores();
 };
