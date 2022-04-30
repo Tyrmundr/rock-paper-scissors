@@ -33,8 +33,8 @@ body {
 #reload {
     cursor: pointer;
     position: absolute;
-    top: 7.5%;
-    right: 4.5%;
+    top: 56px;
+    right: 64px;
     font-size: 96px;
     color: #359227;
     text-shadow: 0 0 8px #74d664;
