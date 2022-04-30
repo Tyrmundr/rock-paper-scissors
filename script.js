@@ -111,6 +111,33 @@ function removeLastChild(nodelist) {
     return nodelist.removeChild(nodelist.lastElementChild);
 };
 
+function createPick(nodelist) {
+    
+}
+
+function changeClasses(array) {
+    array.forEach(item => {
+        item.classList = "";
+        if(array.indexOf(item) === 0) {
+            item.classList.add("prev");
+        } else if (array.indexOf(item) === 1) {
+            item.classList = "prev opaque";
+            item.childNodes[0].classList = "opaque";
+        } else if (array.indexOf(item) === 2) {
+            item.classList = "prev opaquer";
+            item.childNodes[0].classList = "opaquer";
+        }
+    })
+}
+
+
+function getClassLists(nodelist) {
+    let newArr = Array.from(nodelist.childNodes);
+    let filtered = newArr.filter(item => item.classList);
+    
+    changeClasses(filtered)
+}
+
 function updateScores() {
     playerHuman.innerText = `PLAYER - ${playerScore}`;
     playerComputer.innerText = `${computerScore} - COMPUTER`
